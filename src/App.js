@@ -7,17 +7,15 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
 
+
 useEffect(() => {
+  setLoading(true);
   fetch('http://localhost:32/data')
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(
-        `This is an HTTP error: The status is ${response.status}`
-      );
-    }
-    return response.json();
-  })
-   .then((actualData) => console.log(actualData))
+    .then((res) => res.json())
+    .then((actualData) => {
+      const stringOfData = JSON.stringify(actualData);
+      setData(stringOfData);
+   })
    .catch((err) => {
     setError(err.message);
     setData(null);
@@ -27,14 +25,12 @@ useEffect(() => {
   });
 }, []);
 
+
+
 return <div className="App">
 <h1>API Test</h1>
-{loading && <div>A moment please...</div>}
-      {error && (
-        <div>{`There is a problem fetching the post data - ${error}`}</div>
-      )}
-      <ul>
-      
-      </ul>
+<div>{ data }</div>
 </div>
 }
+
+//If statement for loading & error
