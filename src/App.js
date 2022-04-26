@@ -7,7 +7,7 @@ const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
 
 useEffect(() => {
-  fetch()
+  fetch('http://localhost;32/data')
    .then((response) => response.json())
    .then((actualData) => console.log(actualData))
    .catch((err) => {
