@@ -19,18 +19,26 @@ useEffect(() => {
    .catch((err) => {
     setError(err.message);
     setData(null);
+    if (error)
+    return "Error!";
   })
   .finally(() => {
     setLoading(false);
+    If (loading) 
+    return "Loading....";
   });
+
+  
+  
 }, []);
 
 
 
-return <div className="App">
+
+return ( <div className="App">
 <h1>API Test</h1>
 <div>{ data }</div>
 </div>
-}
+)
 
 //If statement for loading & error
