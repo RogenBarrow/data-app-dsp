@@ -27,18 +27,14 @@ useEffect(() => {
     If (loading) 
     return "Loading....";
   });
-
-  
-  
 }, []);
 
 
 
 
-return ( <div className="App">
+return (<div className="App">
 <h1>API Test</h1>
 <div>{ data }</div>
 </div>
-)
-
-//If statement for loading & error
+);
+}
