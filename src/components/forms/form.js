@@ -1,8 +1,10 @@
 import React from "react";
+//import './components/css/form.css';
 
-function inputForm() {
-    return (
-        <div>
+
+function form() {
+       return (
+        <div className="wrapper">
             <h1>Registration Form</h1>
             <form>
                 <fieldset>
@@ -21,4 +23,4 @@ function inputForm() {
     )
 };
 
-export default inputForm;
+export default form;
