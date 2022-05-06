@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import fetch from '../Service/fetch';
+//import App from './App';
+//import fetch from '../Service/fetch';
 import reportWebVitals from './reportWebVitals';
+import inputForm from './form';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <inputForm />
     <fetch />
   </React.StrictMode>
 );
