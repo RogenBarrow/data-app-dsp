@@ -3,7 +3,7 @@ import { useState } from "react";
 //import './components/css/form.css';
 
 
-export function form() {
+const Form = () => {
 const [name, setName] = useState("");
 
 const handleSubmit = (event) => {
@@ -23,6 +23,6 @@ return (
     <input type="submit" />
 </form>
 )
-}
+};
 
-export default form;
+export default Form;
