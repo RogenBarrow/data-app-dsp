@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-//import './components/css/form.css';
+import '/Users/rogenbarrow/Documents/Projects/data-dsp/data-app-dsp/src/css/form.css';
 
 
 const Form = () => {
@@ -12,15 +12,16 @@ const handleSubmit = (event) => {
 }
 
 return (
-<form onSubmit={handleSubmit}>
-    <label> Enter your name:
+<form className="form" onSubmit={handleSubmit}>
+    <label className="labelName">Enter your name</label>
+    <label>
         <input 
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         />
     </label>
-    <input type="submit" />
+    <input className="button" type="submit" />
 </form>
 )
 };

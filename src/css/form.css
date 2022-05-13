@@ -1,7 +1,32 @@
-.wrapper {
-    padding: 5px 20px;
+body {
+    text-align: center;
+    background-color: lightblue;
 }
 
-.wrapper fieldset {
-    margin: 20px 0;
+form {
+    display: inline-block;
+    margin: 325px;
+    
+}
+
+input {
+
+    border-radius: 10px;
+}
+
+.button {
+    margin-left: 5px;
+    background-color: Transparent;
+    border-style: solid;
+    border-color: black;
+
+}
+
+.labelName {
+    margin: 15px;
+    font-weight: bold;
+}
+
+label {
+    margin-right: 10px;
 }
