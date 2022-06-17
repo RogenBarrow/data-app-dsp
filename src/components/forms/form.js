@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import '/Users/rogenbarrow/Documents/Projects/data-dsp/data-app-dsp/src/css/form.css';
 import axios from 'axios';
+import TextField from '@mui/material/TextField';
 
 function App() {
 
@@ -56,13 +57,7 @@ function App() {
     
     
     return(
-        <div>
-            <form onSubmit={() => {}}>
-                <input onChange={handleChange} value={fullname.firstname} type="text" name="firstname" placeholder="First Name"/>
-                <input onChange={handleChange} value={fullname.lastname} type="text" name="lastname" placeholder="Last Name"/>
-                <button  class="button" onClick={axiosPost}>Submit</button>
-            </form>
-        </div>
+        <TextField id="standard-basic" label="Standard" variant="standard" />
     );
 }
 
