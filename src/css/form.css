@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-color: lightblue;
+    background-color: lightcyan;
 }
 
 form {
@@ -11,14 +11,20 @@ form {
 
 input {
 
-    border-radius: 10px;
+    border-radius: 0px;
+    display:block;
+    height: 30px;
+    width: 200px;
+    margin-bottom: 5px;
 }
 
 .button {
-    margin-left: 5px;
-    background-color: Transparent;
+    background-color: white;
     border-style: solid;
     border-color: black;
+    height: 30px;
+    width: 208px;
+    font-size: 15px;
 
 }
 
