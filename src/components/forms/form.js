@@ -3,6 +3,8 @@ import { useState } from "react";
 import '/Users/rogenbarrow/Documents/Projects/data-dsp/data-app-dsp/src/css/form.css';
 import axios from 'axios';
 import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 function App() {
 
@@ -12,12 +14,13 @@ function App() {
     })
 
     const axiosPost = () => {
-        const requestData = fullname;
+        const requestData = JSON.stringify(fullname);
         axios
             .post("http://localhost:32/user", requestData)
             .then(({ data }) => console.log(data))
             .catch((err) => console.error(err));
     }
+
     
     function handleChange(event) {
         const newValue = event.target.value;
@@ -37,8 +40,8 @@ function App() {
             }
         })
         
-        console.log(fullname);
-        //console.log(newValue);
+        //console.log(fullname);
+        console.log(newValue);
         //console.log(inputName);
         //console.log(setFullname);
     };
@@ -50,14 +53,24 @@ function App() {
         fetch("http://localhost:32/user", {
             method: 'POST',
             headers: { 'Content-Type': 'text/html' },
-            body: newData
+            body: fullname
         });
         
     };
     
     
     return(
-        <TextField id="standard-basic" label="Standard" variant="standard" />
+    <Box
+    marginTop={35}
+    display= "block"
+
+    >
+        <form onSubmit={setFullname}>
+        <TextField id="standard-basic" label="Firstname" variant="standard" name="firstname" onChange={handleChange} />
+        <TextField id="standard-basic" label="Lastname" variant="standard" name="lastname" onChange={handleChange} />
+        <Button variant="outlined" onClick={axiosPost}>Submit</Button>
+        </form>
+    </Box>
     );
 }
 
