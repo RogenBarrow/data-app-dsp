@@ -8,69 +8,37 @@ import Button from '@mui/material/Button';
 
 function App() {
 
-    const [fullname, setFullname] = useState({
-        firstName: "",
-        lastName: ""
-    })
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+
+    const handleFirstNameChange = (event) => setFirstName(event.target.value);
+    const handleLastNameChange = (event) => setLastName(event.target.value);
 
     const axiosPost = () => {
-        const requestData = JSON.stringify(fullname);
+        // Check first if either field is empty and if it is, dont submit pls
+        const requestData = {
+            name: firstName,
+            lastName: lastName,
+        };
+
         axios
             .post("http://localhost:32/user", requestData)
             .then(({ data }) => console.log(data))
             .catch((err) => console.error(err));
     }
-
-    
-    function handleChange(event) {
-        const newValue = event.target.value;
-        const inputName = event.target.name;
-
-        setFullname(prevValue => {
-            if (inputName === "firstname") {
-                return {
-                    firstName: newValue,
-                    lastName:   prevValue
-                }
-            } else if (inputName === "lastname") {
-                return {
-                    firstName: prevValue,
-                    lastName: newValue
-                }
-            }
-        })
-        
-        //console.log(fullname);
-        console.log(newValue);
-        //console.log(inputName);
-        //console.log(setFullname);
-    };
-
-    const newData = JSON.stringify(fullname);
-
-    const handleClick = newData => {
-
-        fetch("http://localhost:32/user", {
-            method: 'POST',
-            headers: { 'Content-Type': 'text/html' },
-            body: fullname
-        });
-        
-    };
     
     
     return(
-    <Box
-    marginTop={35}
-    display= "block"
-
-    >
-        <form onSubmit={setFullname}>
-        <TextField id="standard-basic" label="Firstname" variant="standard" name="firstname" onChange={handleChange} />
-        <TextField id="standard-basic" label="Lastname" variant="standard" name="lastname" onChange={handleChange} />
-        <Button variant="outlined" onClick={axiosPost}>Submit</Button>
-        </form>
-    </Box>
+        <Box
+            marginTop={35}
+            display= "block"
+        >
+            <form onSubmit={axiosPost}>
+            <TextField id="standard-basic" label="Firstname" variant="standard" name="firstname" onChange={handleFirstNameChange} />
+            <TextField id="standard-basic" label="Lastname" variant="standard" name="lastname" onChange={handleLastNameChange} />
+            <Button variant="outlined" onClick={axiosPost}>Submit</Button>
+            </form>
+        </Box>
     );
 }
 
