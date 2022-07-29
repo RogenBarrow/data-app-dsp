@@ -15,7 +15,16 @@ function App() {
     const handleLastNameChange = (event) => setLastName(event.target.value);
 
     const axiosPost = () => {
-        // Check first if either field is empty and if it is, dont submit pls
+
+    
+        if (!firstName) {
+            return;
+        }
+        if (!lastName) {
+            return;
+        };
+
+        
         const requestData = {
             name: firstName,
             lastName: lastName,
