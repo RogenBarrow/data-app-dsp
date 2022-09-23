@@ -40,10 +40,7 @@ const data = displayItems;
             .catch((err) => console.error(err));
     }
 
-    //const stringifyData = JSON.parse(displayItems);
     console.table(displayItems);
-    //console.log(stringifyData);
-    //console.log(displayItems)
 
     const listName = displayItems;
     console.log(listName);
@@ -56,8 +53,6 @@ const data = displayItems;
             columns={columns}
             data={data}
         />
-            
-            
             <Button onClick={axiosGet}>Get Data</Button>
         </Box>
 
